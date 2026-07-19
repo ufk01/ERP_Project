@@ -66,4 +66,4 @@ To ensure the microservices communicate correctly, please start the applications
 
 Below is the conceptual logic and architecture flow of the platform:
 
-![Proje logosu](image/logic.png)
+![Proje logosu](logic.png)

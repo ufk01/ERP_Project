@@ -18,6 +18,29 @@ An enterprise-level ERP system built on a scalable **Microservices Architecture*
     *   Implemented **Aspect-Oriented Programming (AOP)** to decouple business logic from logging, using pointcuts/join points (`@Around`, `@Before`, `@After`, `@AfterThrowing`) for enhanced debugging.
     *   Integrated **Log4j2** to maintain structured daily log rotations, categorized by log levels *(Note: ELK Stack integration is planned for future phases)*.
 *   **DevOps & Deployment:** Packaged each microservice into individual **Docker images** and orchestrated the entire multi-container ecosystem using **Docker Compose** for a single-command local development setup.
+# **BACKEND**
+
+## **Description**
+This project encompasses the backend component of an ERP system developed for a logistics company. It involves the setup and implementation of the necessary infrastructure and systems
+
+
+
+## **How To Run in Order**
+
+### ***1) EurekaServerApplication:*** 
+Eureka provides a central registry for registering and discovering services. Other microservices and Spring Cloud Gateway refer to Eureka Server to retrieve and route service registrations. Therefore, Eureka Server must be running first.
+
+Uri: http://localhost:8761/eureka/
+### ***2) CloudConfigServerApplication:***
+Initially, the Config Server must be started. This service retrieves and manages the configuration (.yml) files for the microservices independently of the Git repository.
+### ***3) ApiGatewayServerApplication:***
+It retrieves service information from Eureka Server to route requests to microservices. Additionally, dynamic endpoints are examined based on the user's module and operation permissions obtained from the token, allowing for flexible and secure request routing
+### ***4) SecurityServiceApplication:***
+This service module encompasses the shared characteristics and functionalities of the various user modules. Users must execute this common module before gaining access to the individual modules.
+### ***5) SeaServiceApplication:***
+The application must be started to perform operations within the sea module. However, this application is only applicable for the sea module.
+
+![Proje logosu](image/logic.png)
 
 ---
 
